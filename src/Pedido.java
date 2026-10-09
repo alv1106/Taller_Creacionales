@@ -25,6 +25,29 @@ public class Pedido {
         this.propina = builder.propina;
     }
 
+    // Constructor de copia para Prototype.
+    private Pedido(Pedido original) {
+        this.id = GeneradorConsecutivo
+                .obtenerInstancia().siguiente();
+
+        this.cliente = original.cliente;
+        this.tipoEntrega = original.tipoEntrega;
+        this.direccion = original.direccion;
+        this.items = new ArrayList<>(original.items);
+        this.notas = original.notas;
+        this.cupon = 0;
+        this.propina = original.propina;
+    }
+
+    public Pedido clonar() {
+    return new Pedido(this);
+    }
+
+
+    public void agregarItem(ItemPedido item) {
+        items.add(item);
+    }
+
     public String getId() {
         return id;
     }

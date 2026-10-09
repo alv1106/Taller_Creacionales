@@ -13,7 +13,7 @@ public class GeneradorConsecutivo {
         System.out.println("[Consecutivo] Instancia creada.");
     }
 
-    // El punto de acceso de
+    // El punto de acceso global
     public static GeneradorConsecutivo obtenerInstancia() {
         return INSTANCIA;
     }
