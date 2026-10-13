@@ -1,7 +1,7 @@
 public class PasarelaPSE implements PasarelaPago{
     @Override
     public String nombre() {
-        return "Nequi";
+        return "PSE";
     }
 
     @Override
