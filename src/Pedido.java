@@ -1,4 +1,3 @@
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -67,51 +66,75 @@ public class Pedido {
                 cupon, propina, calcularTotal());
     }
 
-    public static class Builder {
+    public static class Builder implements PedidoBuilder {
 
         private String cliente;
-        private TipoEntrega tipoEntrega = TipoEntrega.RECOGER;
-        private String direccion = "";
-        private final List<ItemPedido> items = new ArrayList<>();
-        private String notas = "";
-        private int cupon = 0;
-        private double propina = 0;
+        private TipoEntrega tipoEntrega;
+        private String direccion;
+        private List<ItemPedido> items;
+        private String notas;
+        private int cupon;
+        private double propina;
 
+        public Builder() {
+            reset();
+        }
+
+        @Override
+        public Builder reset() {
+            cliente = null;
+            tipoEntrega = TipoEntrega.RECOGER;
+            direccion = "";
+            items = new ArrayList<>();
+            notas = "";
+            cupon = 0;
+            propina = 0;
+            return this;
+        }
+
+        @Override
         public Builder conCliente(String cliente) {
             this.cliente = cliente;
             return this;
         }
 
+        @Override
         public Builder conTipoEntrega(TipoEntrega tipoEntrega) {
             this.tipoEntrega = tipoEntrega;
             return this;
         }
 
+        @Override
         public Builder conDireccion(String direccion) {
             this.direccion = direccion;
             return this;
         }
 
+        @Override
         public Builder agregarItem(ItemPedido item) {
             items.add(item);
             return this;
         }
 
+        @Override
         public Builder conNotas(String notas) {
             this.notas = notas;
             return this;
         }
 
+        @Override
         public Builder conCupon(int cupon) {
             this.cupon = cupon;
             return this;
         }
 
+        @Override
         public Builder conPropina(double propina) {
             this.propina = propina;
             return this;
         }
 
+        @Override
         public Pedido construir() {
             // Validaciones en el orden exigido por el taller.
             if (cliente == null || cliente.trim().isEmpty()) {
