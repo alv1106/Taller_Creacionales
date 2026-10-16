@@ -39,7 +39,7 @@ public class Pedido {
     }
 
     public Pedido clonar() {
-    return new Pedido(this);
+        return new Pedido(this);
     }
 
 
@@ -183,8 +183,7 @@ public class Pedido {
             }
 
             // El número se asigna únicamente después de validar.
-            String id = GeneradorConsecutivo
-                    .obtenerInstancia().siguiente();
+            String id = GeneradorConsecutivo.obtenerInstancia().siguiente();
 
             return new Pedido(this, id);
         }

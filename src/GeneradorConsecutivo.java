@@ -1,8 +1,7 @@
 public class GeneradorConsecutivo {
 
     //Instancia unica compartida para la clase
-    private static final GeneradorConsecutivo INSTANCIA =
-            new GeneradorConsecutivo();
+    private static final GeneradorConsecutivo INSTANCIA = new GeneradorConsecutivo();
 
     private int contador;
 
